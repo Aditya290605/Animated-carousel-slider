@@ -1,39 +1,55 @@
-<!--
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
+# AnimatedCarouselSlider
 
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/tools/pub/writing-package-pages).
-
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/to/develop-packages).
--->
-
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+A reusable vertical stacked carousel slider widget for Flutter with smooth drag-based animations and a 3D depth effect.
 
 ## Features
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
-
-## Getting started
-
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+- **Vertical stacked carousel** — cards are displayed in a depth-layered stack
+- **Smooth drag-based animations** — swipe up/down to cycle through items
+- **Infinite cyclic scrolling** — loops seamlessly in both directions
+- **Custom spring curve** — 3-phase animation for a natural, responsive feel
+- **3D perspective transform** — cards scale and recede for visual depth
+- **Zero external dependencies** — only depends on Flutter SDK
+- **Customizable** — card height, animation duration, stack offset, curve, and more
 
 ## Usage
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder.
-
 ```dart
-const like = 'sample';
+import 'package:animated_carousel_slider/animated_carousel_slider.dart';
+
+AnimatedCarouselSlider(
+  items: [
+    Card(child: Center(child: Text("Item 1"))),
+    Card(child: Center(child: Text("Item 2"))),
+    Card(child: Center(child: Text("Item 3"))),
+    Card(child: Center(child: Text("Item 4"))),
+    Card(child: Center(child: Text("Item 5"))),
+  ],
+  onIndexChanged: (index) => print('Active card: $index'),
+)
 ```
 
-## Additional information
+## Parameters
 
-TODO: Tell users more about the package: where to find more information, how to
-contribute to the package, how to file issues, what response they can expect
-from the package authors, and more.
+| Parameter | Type | Default | Description |
+|---|---|---|---|
+| `items` | `List<Widget>` | *required* | Widgets to display in the carousel |
+| `cardHeight` | `double` | `100.0` | Height of each card slot |
+| `maxVisibleCards` | `int?` | `null` | Limit the number of cycling cards |
+| `animationDuration` | `Duration` | `450ms` | Swipe transition duration |
+| `stackOffset` | `double` | `7.0` | Vertical peek offset of stacked cards |
+| `itemSpacing` | `double` | `0.2` | Gap between front and second card |
+| `curve` | `Curve?` | `SpringCurve()` | Custom animation curve |
+| `onIndexChanged` | `ValueChanged<int>?` | `null` | Called when active card changes |
+
+## Architecture
+
+```
+lib/
+├── animated_carousel_slider.dart     ← barrel export
+└── src/
+    ├── animated_carousel_slider.dart ← main public widget
+    ├── carousel_animation.dart       ← SpringCurve + smoothEase
+    ├── carousel_controller.dart      ← config, slot layout, animation math
+    └── carousel_item.dart            ← positioned/transformed item wrapper
+```
