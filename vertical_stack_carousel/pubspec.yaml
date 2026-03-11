@@ -4,7 +4,7 @@ description: >
   drag-based animations and a 3D depth effect. Supports infinite cyclic
   scrolling, customizable card height, animation duration, and stack offset.
 version: 0.1.0
-homepage:
+repository: https://github.com/aditya-magar/animated_carousel_slider
 
 environment:
   sdk: ^3.10.7
