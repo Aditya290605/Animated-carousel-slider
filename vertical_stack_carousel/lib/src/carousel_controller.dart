@@ -107,7 +107,7 @@ List<Map<String, dynamic>> buildAnimationLayers({
   required bool isUpSwipe,
 }) {
   final animInfos = <Map<String, dynamic>>[];
-  const int numSlots = 4;
+  final int numSlots = len < 4 ? len : 4;
   final newIndices = <int>{};
 
   // Compute interpolated position for each card in the new layout
@@ -122,11 +122,11 @@ List<Map<String, dynamic>> buildAnimationLayers({
     final double oldS;
     final double oldZ;
 
-    if (oldRel > 3) {
+    if (oldRel >= numSlots) {
       // Card was off-screen — start from behind the last slot
-      oldY = slots.slotYs[3] + 7.0; // stackOffset
-      oldS = slots.slotScales[3] - 0.02;
-      oldZ = slots.slotZs[3] - 5.0;
+      oldY = slots.slotYs[numSlots - 1] + 7.0; // stackOffset
+      oldS = slots.slotScales[numSlots - 1] - 0.02;
+      oldZ = slots.slotZs[numSlots - 1] - 5.0;
     } else {
       oldY = slots.slotYs[oldRel];
       oldS = slots.slotScales[oldRel];
@@ -160,17 +160,17 @@ List<Map<String, dynamic>> buildAnimationLayers({
     outIdx = oldCurrent % len;
     oldRelOut = 0;
   } else {
-    outIdx = (oldCurrent + 3) % len;
-    oldRelOut = 3;
+    outIdx = (oldCurrent + (numSlots - 1)) % len;
+    oldRelOut = numSlots - 1;
   }
 
   if (!newIndices.contains(outIdx)) {
     final oldY = slots.slotYs[oldRelOut];
     final oldScale = slots.slotScales[oldRelOut];
     final oldZ = slots.slotZs[oldRelOut];
-    final targetY = slots.slotYs[3] + 7.0;
-    final targetScale = slots.slotScales[3] - 0.02;
-    final targetZ = slots.slotZs[3] - 5.0;
+    final targetY = slots.slotYs[numSlots - 1] + 7.0;
+    final targetScale = slots.slotScales[numSlots - 1] - 0.02;
+    final targetZ = slots.slotZs[numSlots - 1] - 5.0;
 
     final y = smoothEase(progress, oldY, targetY);
     final sc = smoothEase(progress, oldScale, targetScale);

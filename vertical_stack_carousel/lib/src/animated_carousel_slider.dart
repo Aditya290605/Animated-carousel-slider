@@ -336,7 +336,8 @@ class _AnimatedCarouselSliderState extends State<AnimatedCarouselSlider>
 
     // ── Static layout ──
     if (!_isAnimating && _dragOffset == 0) {
-      for (int slot = 3; slot >= 0; slot--) {
+      final int actualSlots = len < 4 ? len : 4;
+      for (int slot = actualSlots - 1; slot >= 0; slot--) {
         final y = _slots.slotYs[slot];
         final scale = slot <= 1 ? 1.0 : _slots.slotScales[slot];
         final z = _slots.slotZs[slot];

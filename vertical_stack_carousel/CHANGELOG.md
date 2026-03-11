@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.1
+
+* **Bug Fix**: Fixed a "Duplicate keys found" crash that occurred when exactly 3 items were passed to the carousel due to over-rendering the fourth background slot.
+
 ## 0.1.0
 
 * Initial release of AnimatedCarouselSlider.
