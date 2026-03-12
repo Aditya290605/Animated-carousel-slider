@@ -34,7 +34,7 @@ flutter pub get
 ## Demo
 
 <p align="center">
-  <img src="https://github.com/Aditya290605/Animated-carousel-slider/blob/main/vertical_stack_carousel/example/demo.gif" width="320"/>
+  <img src="https://raw.githubusercontent.com/Aditya290605/Animated-carousel-slider/main/vertical_stack_carousel/example/demo.gif" width="320"/>
 </p>
 
 
