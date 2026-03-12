@@ -2,7 +2,7 @@
 
 A highly customizable, reusable vertical stacked carousel slider widget for Flutter. It features smooth drag-based animations, a beautiful 3D depth effect, and infinite cyclic scrolling.
 
-![AnimatedCarouselSlider Demo](https://raw.githubusercontent.com/aditya-magar/animated_carousel_slider/main/example/demo.gif)
+![AnimatedCarouselSlider Demo](https://raw.githubusercontent.com/aditya-magar/animated_carousel_slider/main/example/demo.mp4)
 *(Note: Replace the link above with the actual URL to your screen recording or GIF after publishing)*
 
 ## ✨ Features
