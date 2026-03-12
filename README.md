@@ -2,8 +2,6 @@
 
 A highly customizable, reusable vertical stacked carousel slider widget for Flutter. It features smooth drag-based animations, a beautiful 3D depth effect, and infinite cyclic scrolling.
 
-![AnimatedCarouselSlider Demo](https://raw.githubusercontent.com/aditya-magar/animated_carousel_slider/main/example/demo.gif)
-*(Note: Replace the link above with the actual URL to your screen recording or GIF after publishing)*
 
 ## ✨ Features
 
@@ -30,6 +28,15 @@ Then run:
 ```bash
 flutter pub get
 ```
+
+---
+
+## Demo
+
+<p align="center">
+  <img src="https://github.com/Aditya290605/Animated-carousel-slider/blob/main/vertical_stack_carousel/example/demo.gif" width="320"/>
+</p>
+
 
 ---
 
